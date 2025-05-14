@@ -27,7 +27,6 @@ endfunction()
 
 
 function(target_common target_name)
-	
 	set_target_properties(${target_name}
 		PROPERTIES
 			DEFINE_SYMBOL ""
@@ -38,6 +37,10 @@ function(target_common target_name)
 		C_VISIBILITY_PRESET hidden
 		VISIBILITY_INLINES_HIDDEN YES
 	)
+
+	add_defines_for_platform(${target_name})	
+	add_defines_for_compiler(${target_name})	
+	add_defines_for_building(${target_name})	
 
 endfunction()
 

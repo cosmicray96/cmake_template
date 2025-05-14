@@ -1,4 +1,4 @@
-function(add_define_for_platform target_name)
+function(add_defines_for_platform target_name)
 	set(target_platform 0)
 	if("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
 		set(target_platform 1)
@@ -13,7 +13,7 @@ function(add_define_for_platform target_name)
 endfunction()	
 
 
-function(add_define_for_compiler target_name)	
+function(add_defines_for_compiler target_name)	
 	set(target_compiler 0)
 	if("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU")
 		set(target_compiler 1)
@@ -30,7 +30,7 @@ function(add_define_for_compiler target_name)
 endfunction()
 
 
-function(add_define_for_building target_name)
+function(add_defines_for_building target_name)
 	target_compile_definitions(${target_name}
 		PRIVATE
 			${target_name}_INSIDE=1
