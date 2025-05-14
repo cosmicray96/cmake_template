@@ -7,7 +7,10 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 
 # Later: include(helper modules here)
-include("${CMAKE_CURRENT_LIST_DIR}/cmake/AddTargets.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/cmake/common.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/cmake/add_define.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/cmake/add_target.cmake")
 
 # Add subprojects
-add_subdirectory(projects/cooltarget)
+add_subdirectory(projects/project01)
+add_subdirectory(projects/project02)

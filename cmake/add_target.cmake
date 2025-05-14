@@ -58,6 +58,27 @@ function(add_static_target target_name)
 			"${path_to_target}/src/"
 	)
 
-	message("Target Added: ${target_name} (StaticLibrary)")
+message("Target Added: ${target_name} (Static Library)")
+
+endfunction()
+
+
+function(add_executable_target target_name)
+	
+	add_executable(${target_name})
+	target_common(${target_name})
+
+	# add_public_sources(${target_name})
+	add_private_sources(${target_name})
+
+	set(path_to_target "${CMAKE_SOURCE_DIR}/projects/${target_name}")
+	target_include_directories(${target_name}
+		PUBLIC
+			"${path_to_target}/inc/"
+		PRIVATE
+			"${path_to_target}/src/"
+	)
+
+message("Target Added: ${target_name} (Executable)")
 
 endfunction()
