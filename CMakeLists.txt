@@ -8,7 +8,7 @@ set(CMAKE_C_EXTENSIONS OFF)
 
 # Later: include(helper modules here)
 include("${CMAKE_CURRENT_LIST_DIR}/cmake/common.cmake")
-include("${CMAKE_CURRENT_LIST_DIR}/cmake/add_define.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/cmake/add_defines.cmake")
 include("${CMAKE_CURRENT_LIST_DIR}/cmake/add_target.cmake")
 
 # Add subprojects

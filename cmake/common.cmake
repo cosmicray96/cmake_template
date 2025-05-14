@@ -1,6 +1,6 @@
 
 set(output_directory "${CMAKE_SOURCE_DIR}/_outputs")
-set(cmake_build_configs Debug Release RelWithDebInfo MinSizeRel)
+set(build_configs Debug Release RelWithDebInfo MinSizeRel)
 
 
 foreach(build_config IN LISTS build_configs)

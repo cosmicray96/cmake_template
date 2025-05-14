@@ -7,7 +7,7 @@ function(add_defines_for_platform target_name)
 	endif()
 
 	target_compile_definitions(${target_name}
-		PRIVATE
+		PUBLIC	
 			${target_name}_PLATFORM=${target_platform}
 	)
 endfunction()	
@@ -24,7 +24,7 @@ function(add_defines_for_compiler target_name)
 	endif()
 
 	target_compile_definitions(${target_name}
-		PRIVATE
+		PUBLIC	
 		${target_name}_COMPILER=${target_compiler}
 	)
 endfunction()
