@@ -13,4 +13,5 @@ include("${CMAKE_CURRENT_LIST_DIR}/cmake/add_target.cmake")
 
 # Add subprojects
 add_subdirectory(projects/project01)
+add_subdirectory(projects/project03)
 add_subdirectory(projects/project02)

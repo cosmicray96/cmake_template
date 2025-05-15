@@ -82,6 +82,33 @@ function(add_executable_target target_name)
 			"${path_to_target}/src/"
 	)
 
+	set_target_properties(${target_name}
+		PROPERTIES
+			INSTALL_RPATH "$ORIGIN"
+	)
+
 message("Target Added: ${target_name} (Executable)")
+
+endfunction()
+
+
+
+function(add_dynamic_target target_name)
+	
+	add_library(${target_name} SHARED)
+	target_common(${target_name})
+
+	add_public_sources(${target_name})
+	add_private_sources(${target_name})
+
+	set(path_to_target "${CMAKE_SOURCE_DIR}/projects/${target_name}")
+	target_include_directories(${target_name}
+		PUBLIC
+			"${path_to_target}/inc/"
+		PRIVATE
+			"${path_to_target}/src/"
+	)
+
+message("Target Added: ${target_name} (Static Library)")
 
 endfunction()

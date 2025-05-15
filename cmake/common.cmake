@@ -1,4 +1,8 @@
 
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
+
+
 set(output_directory "${CMAKE_SOURCE_DIR}/_outputs")
 set(build_configs Debug Release RelWithDebInfo MinSizeRel)
 
