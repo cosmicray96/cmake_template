@@ -109,6 +109,51 @@ function(add_dynamic_target target_name)
 			"${path_to_target}/src/"
 	)
 
-message("Target Added: ${target_name} (Static Library)")
+	message("Target Added: ${target_name} (Dynamic Library)")
 
 endfunction()
+
+
+function(add_custom_test test_name target_name)
+	add_executable(${test_name})
+	target_common(${test_name})
+
+	add_test(NAME ${test_name}
+		COMMAND ${test_name}
+	)
+
+	set(path_to_target "${CMAKE_SOURCE_DIR}/projects/${target_name}")
+	file(GLOB_RECURSE target_sources 
+		"${path_to_target}/inc/${target_name}/*.h"
+		"${path_to_target}/src/${target_name}/*.h"
+		"${path_to_target}/src/${target_name}/*.c"
+		"${path_to_target}/tests/${test_name}.c"
+	)
+	target_sources(${test_name} 
+		PRIVATE
+			${target_sources}
+	)	
+	target_include_directories(${test_name}
+		PRIVATE
+			"${path_to_target}/inc/"	
+			"${path_to_target}/src/"	
+			"${path_to_target}/tests/"	
+	)
+
+	get_target_property(defines 
+		${target_name} INTERFACE_COMPILE_DEFINITIONS
+	)
+	if(defines)
+    	target_compile_definitions(${test_name}
+			PUBLIC 
+				${defines}
+		)
+	endif()
+
+	set_target_properties(${test_name} PROPERTIES
+		RUNTIME_OUTPUT_DIRECTORY "${test_directory}"
+	)
+
+	message("Test Added for ${target_name}: ${test_name}")
+endfunction()
+

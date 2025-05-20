@@ -1,3 +1,13 @@
+function(add_defines_for_test target_name)
+	if("${testing_build}")
+		target_compile_definitions(${target_name}
+			PUBLIC
+				${target_name}_TEST=1
+		)
+	endif()
+endfunction()
+
+
 function(add_defines_for_platform target_name)
 	set(target_platform 0)
 	if("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
