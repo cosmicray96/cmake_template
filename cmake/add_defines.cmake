@@ -1,5 +1,5 @@
 function(add_defines_for_test target_name)
-	if("${testing_build}")
+	if(testing_build)
 		target_compile_definitions(${target_name}
 			PUBLIC
 				${target_name}_TEST=1
