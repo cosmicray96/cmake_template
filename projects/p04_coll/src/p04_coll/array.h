@@ -21,6 +21,7 @@ static p04_array p04_coll_array_construct(size_t capacity, size_t ele_size_byte)
 		.ele_size_byte=ele_size_byte
 	};
 	*(((int32_t*)(a.data)) + 2) = 96; 
+	*(((int32_t*)(a.data)) + 3) = 123; 
 	return a;
 }
 
