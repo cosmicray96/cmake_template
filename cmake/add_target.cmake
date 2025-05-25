@@ -41,6 +41,7 @@ function(target_common target_name)
 	add_defines_for_platform(${target_name})	
 	add_defines_for_compiler(${target_name})	
 	add_defines_for_building(${target_name})	
+	add_defines_for_build_config(${target_name})	
 
 endfunction()
 

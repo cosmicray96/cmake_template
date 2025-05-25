@@ -46,3 +46,25 @@ function(add_defines_for_building target_name)
 			${target_name}_INSIDE=1
 	)
 endfunction()
+
+
+function(add_defines_for_build_config ${target_name})
+	set(build_config 0)
+	
+	if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+		set(build_config 1)
+	elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
+		set(build_config 2)
+	elseif("${CMAKE_BUILD_TYPE}" STREQUAL "RelWithDebInfo")
+		set(build_config 3)
+	elseif("${CMAKE_BUILD_TYPE}" STREQUAL "MinSizeRel")
+		set(build_config 4)
+	endif()
+
+	target_compile_definitions(${target_name}
+		PRIVATE
+			${target_name}_BUILD_TYPE=${build_config}
+
+	)
+
+endfunction()
