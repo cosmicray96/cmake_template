@@ -1,6 +1,6 @@
 #include "soco/allocators/allocator.h"
 #include "soco/allocators/heap.h"
-#include "soco/array.h"
+#include "soco/collections/array.h"
 #include <assert.h>
 
 int main()

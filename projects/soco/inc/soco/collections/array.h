@@ -1,7 +1,7 @@
 #pragma once
 
 #include "soco/soco.h"
-#include "soco/collections.h"
+#include "soco/collections/collection.h"
 #include "soco/allocators/allocator.h"
 
 

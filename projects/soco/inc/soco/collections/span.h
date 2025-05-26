@@ -1,6 +1,6 @@
 #pragma once
 
-#include "soco/iterator.h"
+#include "soco/collections/iterator.h"
 
 
 typedef struct

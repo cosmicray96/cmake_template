@@ -1,7 +1,7 @@
 #pragma once
 
 #include "./soco/soco.h"
-#include "./soco/iterator.h"
+#include "./soco/collections/iterator.h"
 
 
 typedef struct

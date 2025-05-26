@@ -1,4 +1,4 @@
-#include "soco/array.h"
+#include "soco/collections/array.h"
 #include <string.h>
 
 
