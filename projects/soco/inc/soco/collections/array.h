@@ -1,5 +1,6 @@
 #pragma once
 
+#include "soco/collections/iterator.h"
 #include "soco/soco.h"
 #include "soco/collections/collection.h"
 #include "soco/allocators/allocator.h"
@@ -22,3 +23,31 @@ void* soco_array_read_at(soco_array* array, size_t index);
 
 size_t soco_array_capacity(soco_array* array);
 size_t soco_array_count(soco_array* array);
+
+
+//collections
+
+
+// iterators
+#include "soco/collections/iterator.h"
+
+typedef struct
+{
+	soco_array* array;
+	size_t index;
+} soco_array_iterator;
+
+
+soco_array_iterator soco_array_iterator_construct(soco_array* array, size_t index);
+void soco_array_iterator_destruct(soco_array_iterator* iter, soco_allocator* allocator);
+
+void soco_array_iterator_inc(void* iter);
+
+void* soco_array_iterator_get(void* iter); 
+
+bool soco_array_iterator_equal(void* it1, void* it2); 
+
+
+// // array iterator to iterator
+soco_iterator soco_as_iterator(soco_array_iterator* iter);
+
