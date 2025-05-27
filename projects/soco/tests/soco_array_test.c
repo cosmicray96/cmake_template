@@ -39,12 +39,12 @@ int main()
 	soco_iterator it1 = soco_as_iterator(&iter1);
 	soco_iterator it2 = soco_as_iterator(&iter2);
 
-	assert(!it1.vt->equal(it1.dt, it2.dt));
+	assert(!it1.vt->equal(&it1, &it2));
 
-	it1.vt->inc(it1.dt);	
-	it1.vt->inc(it1.dt);
+	it1.vt->inc(&it1);
+	it1.vt->inc(&it1);
 
-	assert(*(int32_t*)(it1.vt->get(it1.dt)) == 789);
+	assert(*(int32_t*)(it1.vt->get(&it1)) == 789);
 
 	soco_array_deconstruct(&a, &allocator);
 	return 0;
