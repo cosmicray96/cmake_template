@@ -12,7 +12,7 @@ typedef struct
 
 struct soco_collection_vt
 {
-	size_t (*count)(void* clctn);
+	size_t (*count)(soco_collection* clctn);
 };
 
 

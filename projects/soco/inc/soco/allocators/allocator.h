@@ -12,7 +12,7 @@ typedef struct
 
 struct soco_allocator_vt_for_heap
 {
-	void* (*alloc)(void* allocator, size_t size_byte);
-	void (*dealloc)(void* allocator, void* mem_ptr);
+	void* (*alloc)(soco_allocator* allocator, size_t size_byte);
+	void (*dealloc)(soco_allocator* allocator, void* mem_ptr);
 };
 

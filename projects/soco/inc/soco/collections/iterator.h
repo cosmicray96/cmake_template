@@ -13,8 +13,8 @@ typedef struct
 
 struct soco_iterator_vt
 {
-	void (*inc)(void* iter);
-	void* (*get)(void* iter); // return: get the data that iter points to
-	bool (*equal)(void* it1, void* it2);
+	void (*inc)(soco_iterator* iter);
+	void* (*get)(soco_iterator* iter); // return: get the data that iter points to
+	bool (*equal)(soco_iterator* it1, soco_iterator* it2);
 };
 

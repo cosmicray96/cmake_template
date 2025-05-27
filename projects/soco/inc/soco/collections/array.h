@@ -41,11 +41,11 @@ typedef struct
 soco_array_iterator soco_array_iterator_construct(soco_array* array, size_t index);
 void soco_array_iterator_destruct(soco_array_iterator* iter, soco_allocator* allocator);
 
-void soco_array_iterator_inc(void* iter);
+void soco_array_iterator_inc(soco_array_iterator* iter);
 
-void* soco_array_iterator_get(void* iter); 
+void* soco_array_iterator_get(soco_array_iterator* iter); 
 
-bool soco_array_iterator_equal(void* it1, void* it2); 
+bool soco_array_iterator_equal(soco_array_iterator* it1, soco_array_iterator* it2); 
 
 
 // // array iterator to iterator
