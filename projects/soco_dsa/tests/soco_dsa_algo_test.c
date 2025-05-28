@@ -8,7 +8,7 @@
 
 #include <assert.h>
 
-bool min(void* elem1, void* elem2) {
+bool min_func(void* elem1, void* elem2) {
 	return (*((int32_t*)elem1)) < (*((int32_t*)elem2));
 }
 
@@ -32,7 +32,7 @@ int main() {
 
 
 	soco_dsa_array_iterator it1 = soco_dsa_array_iterator_construct(&array, 0);
-	soco_dsa_array_iterator it2 = soco_dsa_array_iterator_construct(&array, 4);
+	soco_dsa_array_iterator it2 = soco_dsa_array_iterator_construct(&array, soco_dsa_array_count(&array));
 	soco_dsa_iterator iter1 = soco_dsa_as_iterator(&it1);
 	soco_dsa_iterator iter2 = soco_dsa_as_iterator(&it2);
 	soco_dsa_span span = {
@@ -40,5 +40,5 @@ int main() {
 		.end=&iter2
 	};
 
-	assert(soco_dsa_min(span, &min) == 5);
+	assert(soco_dsa_min(span, &min_func) == 2);
 }
