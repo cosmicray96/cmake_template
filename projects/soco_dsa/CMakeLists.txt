@@ -1,4 +1,4 @@
-add_static_target("soco")
+add_static_target("soco_dsa")
 
 
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/tests/")
