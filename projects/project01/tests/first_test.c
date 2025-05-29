@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "project01/project01.h"
+#include <project01/project01.h>
 
 int main() {
 	int result = project01_add(1, 2);	
