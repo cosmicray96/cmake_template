@@ -3,7 +3,7 @@ function(add_public_sources target_name)
 	set(path_to_target "${CMAKE_SOURCE_DIR}/projects/${target_name}")
 	
 	file(GLOB_RECURSE target_sources_public 
-		"${path_to_target}/inc/${target_name}/*.h"
+		"${path_to_target}/inc/${target_name}/*.hpp"
 	)
 	target_sources(${target_name} 
 		PUBLIC
@@ -16,8 +16,8 @@ function(add_private_sources target_name)
 	set(path_to_target "${CMAKE_SOURCE_DIR}/projects/${target_name}")
 	
 	file(GLOB_RECURSE target_sources_private 
-		"${path_to_target}/src/${target_name}/*.h"
-		"${path_to_target}/src/${target_name}/*.c"
+		"${path_to_target}/src/${target_name}/*.hpp"
+		"${path_to_target}/src/${target_name}/*.cpp"
 	)
 	target_sources(${target_name} 
 		PRIVATE
@@ -34,7 +34,7 @@ function(target_common target_name)
 	
 	# This ensures symbols are hidden by default on GCC/Clang
 	set_target_properties(${target_name} PROPERTIES
-		C_VISIBILITY_PRESET hidden
+		CXX_VISIBILITY_PRESET hidden
 		VISIBILITY_INLINES_HIDDEN YES
 	)
 
@@ -125,10 +125,10 @@ function(add_custom_test test_name target_name)
 
 	set(path_to_target "${CMAKE_SOURCE_DIR}/projects/${target_name}")
 	file(GLOB_RECURSE target_sources 
-		"${path_to_target}/inc/${target_name}/*.h"
-		"${path_to_target}/src/${target_name}/*.h"
-		"${path_to_target}/src/${target_name}/*.c"
-		"${path_to_target}/tests/${test_name}.c"
+		"${path_to_target}/inc/${target_name}/*.hpp"
+		"${path_to_target}/src/${target_name}/*.hpp"
+		"${path_to_target}/src/${target_name}/*.cpp"
+		"${path_to_target}/tests/${test_name}.cpp"
 	)
 	target_sources(${test_name} 
 		PRIVATE

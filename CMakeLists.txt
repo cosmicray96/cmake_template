@@ -1,10 +1,12 @@
 cmake_minimum_required(VERSION 3.15)
-project(CoolProject C)
+project(CoolProject
+	LANGUAGES
+		CXX
+)
 
 # Use C11 and strict warnings
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_STANDARD_REQUIRED ON)
-set(CMAKE_C_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Later: include(helper modules here)
 include("${CMAKE_CURRENT_LIST_DIR}/cmake/check.cmake")
@@ -13,6 +15,4 @@ include("${CMAKE_CURRENT_LIST_DIR}/cmake/add_defines.cmake")
 include("${CMAKE_CURRENT_LIST_DIR}/cmake/add_target.cmake")
 
 # Add subprojects
-add_subdirectory(projects/project01)
-add_subdirectory(projects/project03)
-add_subdirectory(projects/project02)
+add_subdirectory(projects/p01)

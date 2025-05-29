@@ -8,4 +8,4 @@ mkdir -p _builds/Debug
 cmake -S . -B _builds/Debug -DCMAKE_BUILD_TYPE=Debug "$@" -DCMAKE_EXPORT_COMPILE_COMMANDS=1
 cmake --build _builds/Debug
 
-ln -s ./_builds/Debug/compile_commands.json .
+ln -sf ./_builds/Debug/compile_commands.json .
