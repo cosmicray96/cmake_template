@@ -13,6 +13,7 @@ typedef struct
 
 struct soco_dsa_iterator_vt
 {
+	soco_dsa_iterator (*copy)(soco_dsa_iterator* it);
 	size_t (*elem_size_byte)(soco_dsa_iterator* iter);
 	void (*inc)(soco_dsa_iterator* iter);
 	void* (*get)(soco_dsa_iterator* iter); // return: get the data that iter points to

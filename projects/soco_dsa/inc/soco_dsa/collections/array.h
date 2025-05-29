@@ -41,6 +41,8 @@ typedef struct
 
 soco_dsa_array_iterator soco_dsa_array_iterator_construct(soco_dsa_array* array, size_t index);
 
+soco_dsa_array_iterator copy(soco_dsa_array_iterator* it);
+
 size_t soco_dsa_array_iterator_elem_size_byte(soco_dsa_array_iterator* it);
 
 void soco_dsa_array_iterator_inc(soco_dsa_array_iterator* it);

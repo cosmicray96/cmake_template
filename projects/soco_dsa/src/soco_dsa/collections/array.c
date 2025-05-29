@@ -71,6 +71,14 @@ soco_dsa_array_iterator it;
 	return it;
 }
 
+soco_dsa_array_iterator soco_dsa_array_iterator_copy(soco_dsa_array_iterator* it) {
+	soco_dsa_array_iterator new_it = {
+		.array=it->array,
+		.index=it->index
+	};
+	return new_it;
+}
+
 size_t soco_dsa_array_iterator_elem_size_byte(soco_dsa_array_iterator* it) {
 	return it->array->elem_size_byte;
 }
@@ -90,6 +98,12 @@ bool soco_dsa_array_iterator_equal(soco_dsa_array_iterator* it1, soco_dsa_array_
 
 // array iterator to iterator
 
+
+soco_dsa_iterator soco_dsa_array_iterator_copy_bridge_iterator(soco_dsa_iterator* it) {
+	soco_dsa_array_iterator* array_it = (soco_dsa_array_iterator*)(it->dt);
+	soco_dsa_iterator new_it;
+	return new_it;
+}
 
 size_t soco_dsa_array_iterator_elem_size_byte_bridge_iterator(soco_dsa_iterator* it) {
 	soco_dsa_array_iterator* array_it = (soco_dsa_array_iterator*)(it->dt);
