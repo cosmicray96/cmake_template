@@ -2,7 +2,8 @@ target_files_public(main pub_files)
 target_files_private(main priv_files)
 target_inc_dir_public(main pub_includes)
 target_inc_dir_private(main priv_includes)
-target_defines_private(main priv_defs)
+target_defines_static_private(main priv_defs)
+target_defines_static_public(main pub_defs)
 
 add_library(main STATIC
     ${pub_files}
@@ -13,6 +14,7 @@ target_include_directories(main
     PRIVATE ${priv_includes}
 )
 target_compile_definitions(main
+    PUBLIC ${pub_defs}
     PRIVATE ${priv_defs}
 )
 

@@ -4,7 +4,10 @@ target_files_public("${targ_name}" pub_files)
 target_files_private("${targ_name}" priv_files)
 target_inc_dir_public("${targ_name}" pub_includes)
 target_inc_dir_private("${targ_name}" priv_includes)
-target_defines_private("${targ_name}" priv_defs)
+
+# fix this
+target_defines_static_private("${targ_name}" priv_defs)
+target_defines_static_private("${targ_name}" pub_defs)
 
 set(test_full_name "${targ_name}_${test_name}")
 
@@ -18,6 +21,7 @@ target_include_directories("${test_full_name}"
     PRIVATE ${priv_includes}
 )
 target_compile_definitions("${test_full_name}"
+    PUBLIC ${pub_defs}
     PRIVATE ${priv_defs}
 )
 
