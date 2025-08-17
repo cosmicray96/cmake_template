@@ -17,6 +17,6 @@ target_compile_definitions(use_main
 )
 
 target_link_libraries(use_main 
-	PRIVATE "main"
+	PRIVATE "main" "dyn_main"
 )
 

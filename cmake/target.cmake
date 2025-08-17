@@ -36,16 +36,9 @@ function(target_inc_dir_private target_name out_var)
 	set(${out_var} "${dirs}" PARENT_SCOPE)
 endfunction()
 
-function(__target_defines_common target_name out_var)
-	set(defines 
-		"${target_name}_DEF"	
-	)
-	list(APPEND defines "${CMAKE_C_COMPILER_ID}")
-	if(WIN32)
-		list(APPEND defines "PLATFORM_WIN")
-	elseif(UNIX)
-		list(APPEND defines "PLATFORM_UNIX")
-	endif()
+function(__target_defines_common_private target_name out_var)
+	set(defines "")
+	list(APPEND defines "${target_name}_inside")
 	set(${out_var} "${defines}" PARENT_SCOPE)
 endfunction()
 
@@ -57,7 +50,7 @@ function(target_defines_static_public target_name out_var)
 endfunction()
 
 function(target_defines_static_private target_name out_var)
-	__target_defines_common("${target_name}" defines)
+	__target_defines_common_private("${target_name}" defines)
 	# space for more
 	set(${out_var} "${defines}" PARENT_SCOPE)
 endfunction()
@@ -70,15 +63,13 @@ function(target_defines_shared_public target_name out_var)
 endfunction()
 
 function(target_defines_shared_private target_name out_var)
-	__target_defines_common("${target_name}" defines)
-	list(APPEND defines 
-		"${target_name}_export" 
-	)
+	__target_defines_common_private("${target_name}" defines)
+	# space for more
 	set(${out_var} "${defines}" PARENT_SCOPE)
 endfunction()
 
 function(target_defines_exe_private target_name out_var)
-	__target_defines_common("${target_name}" defines)
+	__target_defines_common_private("${target_name}" defines)
 	# space for more
 	set(${out_var} "${defines}" PARENT_SCOPE)
 endfunction()
