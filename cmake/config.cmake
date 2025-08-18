@@ -2,20 +2,20 @@ set(CMAKE_C_STANDARD "99")
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-
 set(CMAKE_C_VISIBILITY_PRESET hidden)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
-
 enable_testing()
 
-get_filename_component(proj_root_dir "${CMAKE_CURRENT_LIST_DIR}/.." ABSOLUTE)
+__valid_cmake_build_type()
 
 #--- output dirs ---#
-set(bin_dir "${proj_root_dir}/_bin")
+get_filename_component(proj_root_dir "${CMAKE_CURRENT_LIST_DIR}/.." ABSOLUTE)
+__get_bin_dir_name(bin_name) 
+set(bin_dir "${proj_root_dir}/_bin/${CMAKE_BUILD_TYPE}/${bin_name}")
 
-set(junk_dir "${bin_dir}/${CMAKE_BUILD_TYPE}/_junk")
-set(tests_dir "${bin_dir}/${CMAKE_BUILD_TYPE}/_tests")
-set(exe_dir "${bin_dir}/${CMAKE_BUILD_TYPE}")
+set(junk_dir "${bin_dir}/_junk")
+set(tests_dir "${bin_dir}/_tests")
+set(exe_dir "${bin_dir}")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${exe_dir}") 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${exe_dir}") 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${junk_dir}") 
