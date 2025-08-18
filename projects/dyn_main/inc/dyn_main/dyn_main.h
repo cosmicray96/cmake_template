@@ -5,4 +5,6 @@
 
 dyn_main_ex void dyn_main_func();
 
+dyn_main_ex void dyn_main_fea();
+
 #endif

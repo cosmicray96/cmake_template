@@ -16,6 +16,7 @@ int main() {
   printf("process id form unistd.h: %d\n", func1());
 
   dyn_main_func();
+  dyn_main_fea();
 
   return 0;
 }
